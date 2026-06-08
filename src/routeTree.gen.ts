@@ -16,6 +16,7 @@ import { Route as NewsRouteImport } from './routes/news'
 import { Route as FanZoneRouteImport } from './routes/fan-zone'
 import { Route as AcademyRouteImport } from './routes/academy'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as Player1RouteImport } from './routes/player/1'
 
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
@@ -52,6 +53,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Player1Route = Player1RouteImport.update({
+  id: '/player/1',
+  path: '/player/1',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/schedule': typeof ScheduleRoute
   '/shop': typeof ShopRoute
   '/team': typeof TeamRoute
+  '/player/1': typeof Player1Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/schedule': typeof ScheduleRoute
   '/shop': typeof ShopRoute
   '/team': typeof TeamRoute
+  '/player/1': typeof Player1Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/schedule': typeof ScheduleRoute
   '/shop': typeof ShopRoute
   '/team': typeof TeamRoute
+  '/player/1': typeof Player1Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,8 +100,17 @@ export interface FileRouteTypes {
     | '/schedule'
     | '/shop'
     | '/team'
+    | '/player/1'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/academy' | '/fan-zone' | '/news' | '/schedule' | '/shop' | '/team'
+  to:
+    | '/'
+    | '/academy'
+    | '/fan-zone'
+    | '/news'
+    | '/schedule'
+    | '/shop'
+    | '/team'
+    | '/player/1'
   id:
     | '__root__'
     | '/'
@@ -102,6 +120,7 @@ export interface FileRouteTypes {
     | '/schedule'
     | '/shop'
     | '/team'
+    | '/player/1'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -112,6 +131,7 @@ export interface RootRouteChildren {
   ScheduleRoute: typeof ScheduleRoute
   ShopRoute: typeof ShopRoute
   TeamRoute: typeof TeamRoute
+  Player1Route: typeof Player1Route
 }
 
 declare module '@tanstack/react-router' {
@@ -165,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/player/1': {
+      id: '/player/1'
+      path: '/player/1'
+      fullPath: '/player/1'
+      preLoaderRoute: typeof Player1RouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -176,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   ScheduleRoute: ScheduleRoute,
   ShopRoute: ShopRoute,
   TeamRoute: TeamRoute,
+  Player1Route: Player1Route,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -92,65 +92,67 @@ function Index() {
       </div>
 
       {/* ================= RIGHT ================= */}
-      <div className="relative h-screen">
-        {/* IMAGE */}
-        <div
-          className="absolute inset-0 overflow-hidden"
-          style={{
-            clipPath: "polygon(23% 0%,100% 0%,100% 100%,0% 100%)",
-          }}
-        >
-          <img
-            src={heroPlayer}
-            alt="Bangkok Kings Player"
-            className="
-              h-full
-              w-full
-              object-cover
-              object-center
-            "
-          />
+  <div className="relative h-screen hidden lg:block">
+  {/* IMAGE */}
+  <div
+    className="absolute inset-0 overflow-hidden"
+    style={{
+      clipPath: "polygon(23% 0%,100% 0%,100% 100%,0% 100%)",
+    }}
+  >
+    <img
+      src={heroPlayer}
+      alt="Bangkok Kings Player"
+      className="
+        h-full
+        w-full
+        object-cover
+        object-center
+      "
+    />
 
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071521]/20 via-transparent to-transparent" />
-        </div>
+    <div className="absolute inset-0 bg-gradient-to-r from-[#071521]/20 via-transparent to-transparent" />
+  </div>
 
-        {/* RED STRIPE */}
-        <div
-          className="
-            absolute
-            left-[70px]
-            top-[-10px]
-            bottom-0
-            w-[20px]
-            z-30
-            bg-[#8f1827]
-          "
-          style={{
-            clipPath: "polygon(0 0,100% 0,0% 100%,0 100%)",
-            transform: "rotate(9.5deg)",
-            transformOrigin: "center",
-          }}
-        />
+  {/* RED STRIPE */}
+  <div
+    className="
+      absolute
+      left-[70px]
+      top-[-10px]
+      bottom-0
+      w-[20px]
+      z-30
+      bg-[#8f1827]
+      hidden md:block
+    "
+    style={{
+      clipPath: "polygon(0 0,100% 0,0% 100%,0 100%)",
+      transform: "rotate(9.5deg)",
+      transformOrigin: "center",
+    }}
+  />
 
-        {/* GOLD STRIPE */}
-        <div
-          className="
-            absolute
-            left-[80px]
-            top-[-10px]
-            bottom-0
-            w-[15px]
-            z-40
-            bg-[#d0a85c]
-          "
-          style={{
-            clipPath: "polygon(0 0,100% 0,0% 100%,0 100%)",
-            transform: "rotate(11deg)",
-            transformOrigin: "center",
-          }}
-        />
-      </div>
-    </div>
+  {/* GOLD STRIPE */}
+  <div
+    className="
+      absolute
+      left-[80px]
+      top-[-10px]
+      bottom-0
+      w-[15px]
+      z-40
+      bg-[#d0a85c]
+      hidden md:block
+    "
+    style={{
+      clipPath: "polygon(0 0,100% 0,0% 100%,0 100%)",
+      transform: "rotate(11deg)",
+      transformOrigin: "center",
+    }}
+  />
+</div>
+</div>
   </div>
 </section>
 
