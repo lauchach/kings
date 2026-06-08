@@ -9,7 +9,9 @@ import player1 from "@/assets/player-1.jpg";
 import player2 from "@/assets/player-2.jpg";
 import player3 from "@/assets/player-3.jpg";
 import newsRecap from "@/assets/news-recap.jpg";
+import wallpphero from "@/assets/wallpphero.jpg";
 
+console.log(wallpphero);
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -25,34 +27,134 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <SiteLayout>
-      <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl grid lg:grid-cols-[1fr_1.1fr] gap-8 px-6 py-16 lg:py-24 items-center">
-          <div className="relative z-10">
-            <h1 className="font-display font-black leading-[0.95] text-6xl md:text-7xl lg:text-8xl">
-              <span className="block text-gradient-gold drop-shadow-[0_2px_0_rgba(0,0,0,0.6)]">ROYALTY</span>
-              <span className="block text-foreground">OF THE RINK</span>
-            </h1>
-            <p className="mt-6 max-w-md text-muted-foreground">
-              Bangkok's premier ice hockey franchise. Skill, speed and a crown to defend — every shift.
-            </p>
-            <button className="mt-8 inline-flex items-center gap-2 bg-primary text-primary-foreground font-condensed font-bold tracking-widest px-8 py-4 shadow-[var(--shadow-deep)] hover:bg-primary/90 transition-all hover:translate-y-[-2px]">
-              JOIN THE KINGDOM <ChevronRight className="h-4 w-4" />
-            </button>
-          </div>
-          <div className="relative">
-            <div className="absolute -inset-4 bg-[var(--gradient-hero)] blur-2xl opacity-60" />
-            <div
-              className="relative overflow-hidden rounded-sm border border-accent/20 shadow-[var(--shadow-deep)]"
-              style={{ clipPath: "polygon(8% 0, 100% 0, 100% 100%, 0 100%)" }}
-            >
-              <img src={heroPlayer} alt="Bangkok Kings player skating" width={1280} height={1280} className="w-full h-[460px] lg:h-[560px] object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent" />
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-20 grid lg:grid-cols-3 gap-6">
+
+      <section className="relative overflow-hidden min-h-screen">
+  <img
+    src={wallpphero}
+    alt=""
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+
+  {/* Background Texture */}
+  <div
+    className="
+      absolute
+      inset-0
+      opacity-[0.05]
+      pointer-events-none
+      bg-[url('/textures/scratches.png')]
+      bg-cover
+    "
+  />
+
+  {/* ลบ py-12 lg:py-20 ออก */}
+  <div className="relative mx-auto max-w-7xl px-6">
+    <div className="grid lg:grid-cols-[40%_60%] items-center gap-0 min-h-screen">
+      
+      {/* ================= LEFT ================= */}
+      <div className="relative z-10">
+<h1 className="uppercase leading-[0.9] select-none text-white font-extrabold text-shadow-lg">
+  {/* บรรทัดแรก: ROYALTY (เล็กลงอีก) */}
+  <span className="block text-[2.5rem] md:text-[3.8rem] lg:text-[4.8rem] font-extrabold tracking-[0.25em] font-['Avenir_Next'] text-[#FFD700]">
+    ROYALTY
+  </span>
+
+  {/* บรรทัดสอง: OF THE RINK (เล็กลงอีก) */}
+  <span className="block text-[1.8rem] md:text-[2.6rem] lg:text-[3.5rem] font-bold tracking-[0.3em] font-['Avenir_Next'] text-[#ADD8E6]">
+    OF THE RINK
+  </span>
+</h1>
+
+        <button
+          className="
+            mt-10
+            inline-flex
+            items-center
+            justify-center
+            bg-[#b3162b]
+            hover:bg-[#991120]
+            text-white
+            uppercase
+            font-black
+            text-lg
+            px-10
+            py-4
+            rounded-md
+            shadow-[0_12px_30px_rgba(179,22,43,0.4)]
+            transition-all
+            duration-300
+            hover:-translate-y-1
+          "
+        >
+          JOIN THE KINGDOM
+        </button>
+      </div>
+
+      {/* ================= RIGHT ================= */}
+      <div className="relative h-screen">
+        {/* IMAGE */}
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={{
+            clipPath: "polygon(23% 0%,100% 0%,100% 100%,0% 100%)",
+          }}
+        >
+          <img
+            src={heroPlayer}
+            alt="Bangkok Kings Player"
+            className="
+              h-full
+              w-full
+              object-cover
+              object-center
+            "
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071521]/20 via-transparent to-transparent" />
+        </div>
+
+        {/* RED STRIPE */}
+        <div
+          className="
+            absolute
+            left-[70px]
+            top-[-10px]
+            bottom-0
+            w-[20px]
+            z-30
+            bg-[#8f1827]
+          "
+          style={{
+            clipPath: "polygon(0 0,100% 0,0% 100%,0 100%)",
+            transform: "rotate(9.5deg)",
+            transformOrigin: "center",
+          }}
+        />
+
+        {/* GOLD STRIPE */}
+        <div
+          className="
+            absolute
+            left-[80px]
+            top-[-10px]
+            bottom-0
+            w-[15px]
+            z-40
+            bg-[#d0a85c]
+          "
+          style={{
+            clipPath: "polygon(0 0,100% 0,0% 100%,0 100%)",
+            transform: "rotate(11deg)",
+            transformOrigin: "center",
+          }}
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section className="mx-auto max-w-7xl px-6 p-20 grid lg:grid-cols-3 gap-6">
         <div>
           <h2 className="font-display text-accent text-2xl font-bold tracking-wider mb-4">NEXT GAME</h2>
           <div className="bg-card border border-border rounded-sm p-6 shadow-[var(--shadow-deep)]">
